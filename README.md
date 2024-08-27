@@ -5,3 +5,9 @@
  - Run `php artisan migrate`
  - Run `php artisan db:seed` to add default user to DB
  - Run `php artisan serve` to run server
+ - [Swagger](http://localhost:8000/api/documentation) documentation
+
+### Potential improvements:
+ - State pattern for Signature status
+ - Add policies for signing document
+ - Use custom exceptions
