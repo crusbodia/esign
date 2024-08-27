@@ -14,6 +14,35 @@ class SignController extends Controller
         private readonly SignatureServiceInterface $signatureService
     ) {}
 
+    /**
+     * @OA\Patch(
+     *     path="/api/signatures/{signature}/sign",
+     *     summary="Sign a document",
+     *     tags={"Signatures"},
+     *     @OA\Parameter(
+     *         name="signature",
+     *         in="path",
+     *         required=true,
+     *         description="Signature UUID",
+     *         @OA\Schema(type="string"),
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Signature successfully processed",
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(ref="#/components/schemas/SignatureResource"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad Request",
+     *     ),
+     *      security={
+     *        {"bearerAuth": {}}
+     *      }
+     * )
+     */
     public function index(Signature $signature, Request $request): SignatureResource
     {
         $signature = $this->signatureService->signDocument($signature, $request->user());

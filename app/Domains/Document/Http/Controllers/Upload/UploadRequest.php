@@ -13,7 +13,7 @@ class UploadRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'document' => ['required', 'mimes:pdf','max:2048'],
+            'document' => ['required', 'mimes:pdf', 'max:2048'],
         ];
     }
 }
